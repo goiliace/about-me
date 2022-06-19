@@ -10,19 +10,27 @@ export const ChatWidget = () => {
     }, []);
 
     const handleNewUserMessage = (newMessage) => {
-        console.log(`New message incoming! ${newMessage}`);;
-            const url = '/get?mess=' + newMessage;
-            console.log(url);
-            fetch(url).then(
-                res => res.json()
-            ).then(
-                data => {
-                   addResponseMessage(data.bot);
-                }
-            )
-        
+        const data = { data: newMessage }
+        console.log(newMessage);
+        fetch('http://127.0.0.1:5000/get', {
+                'method': 'POST',
+                'headers': {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                addResponseMessage(data.bot);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        // let res =  req.json();
+
     };
-    
+
     return (
         <div className="App">
             <Widget
