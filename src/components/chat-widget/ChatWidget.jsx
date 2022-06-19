@@ -25,7 +25,7 @@ export const ChatWidget = () => {
                 addResponseMessage(data.bot);
             })
             .catch((error) => {
-                console.error('Error:', error);
+                addResponseMessage("Hiện tại hệ thống đang lỗi, bạn chờ Hưng xíu nha");
             });
         // let res =  req.json();
 
