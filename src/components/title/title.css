@@ -1,0 +1,7 @@
+.title_content {
+    margin-bottom: 4rem;
+}
+
+.title_content h2 {
+    color: var(--color-primary);
+}
