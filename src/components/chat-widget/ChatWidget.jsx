@@ -12,7 +12,7 @@ export const ChatWidget = () => {
     const handleNewUserMessage = (newMessage) => {
         const data = { data: newMessage }
         console.log(newMessage);
-        fetch('http://127.0.0.1:5000/get', {
+        fetch('https://apichatbot-production.up.railway.app/get', {
                 'method': 'POST',
                 'headers': {
                     'Accept': 'application/json',
